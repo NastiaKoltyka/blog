@@ -1,0 +1,18 @@
+.wrapper {
+  width: 400px;
+  height: 400px;
+  border: 1px solid black;
+  margin: auto;
+}
+
+input[type="text"].ng-valid,
+input[type="password"].ng-valid,
+input[type="email"].ng-valid {
+  outline: 2px solid green;
+}
+input[type="text"].ng-invalid.ng-dirty,
+input[type="password"].ng-invalid.ng-dirty,
+input[type="email"].ng-invalid.ng-dirty {
+  outline: 2px solid red;
+}
+

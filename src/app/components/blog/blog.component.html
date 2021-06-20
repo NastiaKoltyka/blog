@@ -1,0 +1,34 @@
+<div>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" name="title" id="title" [(ngModel)]="title" required ngModel>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <input type="text" name="description" id="description" [(ngModel)]="description" required ngModel>
+    </div>
+    <input type="submit" value="Add" *ngIf="!visibleEdit">
+    <input type="submit" value="Save" *ngIf="visibleEdit">
+  </form>
+  <div>
+    <span>Articles</span>
+    <div *ngFor="let article of articles, let index=index;">
+      <div>{{article.title}}</div>
+      <div>{{article.description}}</div>
+      <div>{{article.time}}</div>
+      <div>
+        <button (click)="edit(index)">Edit</button>
+        <button (click)="delete(index)" *ngIf="login==='Admin'">Delete</button>
+      </div>
+    </div>
+  </div>
+  <button (click)="modal()" *ngIf="login==='Admin'">Delete All!!!</button>
+</div>
+<div *ngIf="visibleModal">
+  <span>Do you really wannt to delete all articles?</span>
+  <div>
+    <div (click)="deleteAll()">Yes</div>
+    <div (click)="closeWindow()">No</div>
+  </div>
+</div>
