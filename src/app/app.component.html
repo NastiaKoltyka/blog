@@ -1,6 +1,8 @@
-<div *ngIf="blog">
-  <div>Hello,{{name}}</div>
-  <div (click)="logOut()">LogOut</div>
+<div *ngIf="!blog" class="blogHeader">BLOG</div>
+<div *ngIf="blog" class="blogHeaderBlog">
+  <div class="name">Hello,{{name}}</div>
+  <div class="title">BLOG</div>
+  <div (click)="logOut()" class="logOut">LogOut</div>
 </div>
 <app-login *ngIf="login" (blog)="showBlog($event)" (registration)="showRegistration()"></app-login>
 <app-registration *ngIf="registration" (registrationSuccess)="showLogin()"></app-registration>

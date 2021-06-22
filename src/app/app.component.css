@@ -1,0 +1,21 @@
+.blogHeader, .blogHeaderBlog {
+  text-align: center;
+  font-size: 50px;
+  font-family: cursive;
+  text-shadow: 4px 4px 5px red;
+  border-bottom: 2px solid #060505;
+  box-shadow: -11px -5px 20px #b7b7b7;
+}
+.name, .logOut{
+    font-family: cursive;
+    font-size: 20px;
+    text-shadow: none;
+    margin: 20px;
+}
+.blogHeaderBlog{
+    display: flex;
+    justify-content: space-between;
+}
+.title{
+    margin-left: -80px;
+}

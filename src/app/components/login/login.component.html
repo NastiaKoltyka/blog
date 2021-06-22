@@ -1,14 +1,15 @@
 <div class="wrapper">
+  <h3>Login</h3>
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <div>
-      <label for="login">Login:</label>
-      <input type="text" id="login" name="login" ngModel required>
+      <label for="login" class="form-label">Login:</label>
+      <input type="text" id="login" name="login" class="form-control" ngModel required>
     </div>
     <div>
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" required ngModel>
-      <div *ngIf="error">Password wrong!</div>
+      <label for="password" class="form-label">Password:</label>
+      <input type="password" name="password" id="password" class="form-control" required ngModel>
+      <div *ngIf="error" class="invalid-tooltip">Password wrong!</div>
     </div>
-    <input type="submit" value="LogIn">
+    <input type="submit" value="LogIn" class="btn btn-success">
   </form>
 </div>

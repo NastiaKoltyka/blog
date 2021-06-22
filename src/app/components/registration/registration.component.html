@@ -1,44 +1,49 @@
 <div class="wrapper">
+  <h3>Registration</h3>
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <div>
       <label for="name">Name:</label>
-      <input type="text" name="name" id="name" required pattern="^[A-Za-z]{1,}" #name="ngModel" ngModel>
-      <div *ngIf="name.invalid && name.dirty">Use latin letters only</div>
+      <input type="text" name="name" id="name" required pattern="^[A-Za-z]{1,}" #name="ngModel" class="form-control"
+        ngModel>
+      <div *ngIf="name.invalid && name.dirty" class="invalid-tooltip">Use latin letters only</div>
     </div>
     <div>
       <label for="surname">Surname</label>
-      <input type="text" name="surname" id="surname" required pattern="^[A-Za-z]{1,}"#surname="ngModel" ngModel>
-      <div *ngIf="surname.invalid && surname.dirty">Use latin letters only</div>
+      <input type="text" name="surname" id="surname" required pattern="^[A-Za-z]{1,}" class="form-control"
+        #surname="ngModel" ngModel>
+      <div *ngIf="surname.invalid && surname.dirty" class="invalid-tooltip">Use latin letters only</div>
     </div>
     <div>
       <label for="login">Login:</label>
-      <input type="text" id="login" name="login" ngModel pattern="^[A-Za-z]{1,}" required #login="ngModel">
-      <div *ngIf="login.invalid && login.dirty">Use latin letters only</div>
+      <input type="text" id="login" name="login" ngModel pattern="^[A-Za-z]{1,}" class="form-control" required
+        #login="ngModel">
+      <div *ngIf="login.invalid && login.dirty" class="invalid-tooltip">Use latin letters only</div>
     </div>
     <div>
       <label for="password">Password:</label>
       <input type="password" name="password" id="password" required
-        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{4,}$" ngModel #password="ngModel">
-        <div *ngIf="password.invalid && password.dirty">Minimum four characters, at least one uppercase letter, one lowercase letter and one number</div>
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{4,}$" class="form-control" ngModel #password="ngModel">
+      <div *ngIf="password.invalid && password.dirty" class="invalid-tooltip">Minimum four characters, at least one uppercase letter, one
+        lowercase letter and one number</div>
     </div>
     <div>
       <label for="second-password">Password:</label>
-      <input type="password" name="secondPassword" id="second-password" required pattern="{{form.value.password}}" #secondPassword="ngModel"
-        ngModel>
-        <div *ngIf="secondPassword.invalid && secondPassword.dirty">Use the same password for confirmation</div>
+      <input type="password" name="secondPassword" id="second-password" class="form-control" required
+        pattern="{{form.value.password}}" #secondPassword="ngModel" ngModel>
+      <div *ngIf="secondPassword.invalid && secondPassword.dirty" class="invalid-tooltip">Use the same password for confirmation</div>
     </div>
     <div>
       <label for="mail">Email:</label>
-      <input type="email" name="mail" id="mail" pattern="[A-Za-z0-9\.%№\$\-#]{1,}@[A-Za-z0-9]{1,}\.[A-Za-z0-9]{1,}" #mail="ngModel"
-        required ngModel>
-        <div *ngIf="mail.invalid && mail.dirty">Wrong email adress</div>
+      <input type="email" name="mail" id="mail" pattern="[A-Za-z0-9\.%№\$\-#]{1,}@[A-Za-z0-9]{1,}\.[A-Za-z0-9]{1,}"
+        #mail="ngModel" class="form-control" required ngModel>
+      <div *ngIf="mail.invalid && mail.dirty" class="invalid-tooltip">Wrong email adress</div>
     </div>
-    <div>
-      <label for="male">Male</label>
-      <input type="radio" name="sex" id="male" value="male" ngModel>
-      <label for="male">Female</label>
-      <input type="radio" name="sex" id="female" value="female" ngModel>
+    <div class="radio">
+      <label for="male" class="form-check-label">Male</label>
+      <input type="radio" name="sex" id="male" value="male" class="form-check-input" ngModel>
+      <label for="male" class="form-check-label">Female</label>
+      <input type="radio" name="sex" id="female" value="female" class="form-check-input" ngModel>
     </div>
-    <input type="submit" value="Registration">
+    <input type="submit"class="btn btn-success" value="Registration">
   </form>
 </div>

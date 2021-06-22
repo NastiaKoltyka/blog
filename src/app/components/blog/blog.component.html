@@ -1,34 +1,45 @@
-<div>
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+<div class="blog">
+  <h3>New articles:</h3>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="addInfo">
     <div>
-      <label for="title">Title:</label>
-      <input type="text" name="title" id="title" [(ngModel)]="title" required ngModel>
+      <label for="title" class="form-label">Title:</label>
+      <input type="text" name="title" id="title" [(ngModel)]="title" class="form-control" required ngModel>
     </div>
     <div>
-      <label for="description">Description:</label>
-      <input type="text" name="description" id="description" [(ngModel)]="description" required ngModel>
+      <label for="description" class="form-label">Description:</label>
+      <input type="text" name="description" id="description" [(ngModel)]="description" class="form-control" required
+        ngModel>
     </div>
-    <input type="submit" value="Add" *ngIf="!visibleEdit">
-    <input type="submit" value="Save" *ngIf="visibleEdit">
+    <input type="submit" value="Add" *ngIf="!visibleEdit" class="btn btn-primary">
+    <input type="submit" value="Save" *ngIf="visibleEdit" class="btn btn-success">
   </form>
   <div>
-    <span>Articles</span>
-    <div *ngFor="let article of articles, let index=index;">
-      <div>{{article.title}}</div>
-      <div>{{article.description}}</div>
-      <div>{{article.time}}</div>
+    <h3>Articles:</h3>
+    <div *ngFor="let article of articles, let index=index;" class="article">
+      <div class="article-title">{{article.title}}</div>
+      <div class="article-time">{{article.time}}</div>
+      <div class="article-description">{{article.description}}</div>
       <div>
-        <button (click)="edit(index)">Edit</button>
-        <button (click)="delete(index)" *ngIf="login==='Admin'">Delete</button>
+        <button (click)="edit(index)" class="btn btn-warning">Edit</button>
+        <button (click)="delete(index)" *ngIf="login==='Admin'" class="btn btn-danger">Delete</button>
       </div>
     </div>
   </div>
-  <button (click)="modal()" *ngIf="login==='Admin'">Delete All!!!</button>
+  <button (click)="modal()" *ngIf="login==='Admin'" class="btn btn-dark">Delete All!!!</button>
 </div>
-<div *ngIf="visibleModal">
-  <span>Do you really wannt to delete all articles?</span>
-  <div>
-    <div (click)="deleteAll()">Yes</div>
-    <div (click)="closeWindow()">No</div>
+<div class="modal" tabindex="-1" *ngIf="visibleModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete All</h5>
+      </div>
+      <div class="modal-body">
+        <p>Do you really wannt to delete all articles?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="deleteAll()">Yes</button>
+        <button type="button" class="btn btn-info" (click)="closeWindow()">No</button>
+      </div>
+    </div>
   </div>
 </div>
