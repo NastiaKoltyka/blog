@@ -23,14 +23,16 @@
       <label for="password">Password:</label>
       <input type="password" name="password" id="password" required
         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{4,}$" class="form-control" ngModel #password="ngModel">
-      <div *ngIf="password.invalid && password.dirty" class="invalid-tooltip">Minimum four characters, at least one uppercase letter, one
+      <div *ngIf="password.invalid && password.dirty" class="invalid-tooltip">Minimum four characters, at least one
+        uppercase letter, one
         lowercase letter and one number</div>
     </div>
     <div>
       <label for="second-password">Password:</label>
       <input type="password" name="secondPassword" id="second-password" class="form-control" required
         pattern="{{form.value.password}}" #secondPassword="ngModel" ngModel>
-      <div *ngIf="secondPassword.invalid && secondPassword.dirty" class="invalid-tooltip">Use the same password for confirmation</div>
+      <div *ngIf="secondPassword.invalid && secondPassword.dirty" class="invalid-tooltip">Use the same password for
+        confirmation</div>
     </div>
     <div>
       <label for="mail">Email:</label>
@@ -40,10 +42,10 @@
     </div>
     <div class="radio">
       <label for="male" class="form-check-label">Male</label>
-      <input type="radio" name="sex" id="male" value="male" class="form-check-input" ngModel>
-      <label for="male" class="form-check-label">Female</label>
-      <input type="radio" name="sex" id="female" value="female" class="form-check-input" ngModel>
+      <input type="radio" name="sex" id="male" value="male" class="form-check-input" [(ngModel)]="checked" ngModel>
+      <label for="female" class="form-check-label">Female</label>
+      <input type="radio" name="sex" id="female" value="female" class="form-check-input" [(ngModel)]="checked" ngModel>
     </div>
-    <input type="submit"class="btn btn-success" value="Registration">
+    <input type="submit" class="btn btn-success" value="Registration">
   </form>
 </div>

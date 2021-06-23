@@ -3,21 +3,23 @@
   <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="addInfo">
     <div>
       <label for="title" class="form-label">Title:</label>
-      <input type="text" name="title" id="title" [(ngModel)]="title" class="form-control" required ngModel>
+      <input type="text" name="title" id="title" [(ngModel)]="title" class="form-control" required ngModel
+        #titleStatus="ngModel">
     </div>
     <div>
       <label for="description" class="form-label">Description:</label>
       <input type="text" name="description" id="description" [(ngModel)]="description" class="form-control" required
-        ngModel>
+        #descriptionStatus="ngModel" ngModel>
     </div>
-    <input type="submit" value="Add" *ngIf="!visibleEdit" class="btn btn-primary">
+    <input type="submit" value="Add" *ngIf="!visibleEdit" class="btn btn-primary"
+      [disabled]="titleStatus.pristine || descriptionStatus.pristine">
     <input type="submit" value="Save" *ngIf="visibleEdit" class="btn btn-success">
   </form>
   <div>
     <h3>Articles:</h3>
     <div *ngFor="let article of articles, let index=index;" class="article">
       <div class="article-title">{{article.title}}</div>
-      <div class="article-time">{{article.time}}</div>
+      <div class="article-time">{{article.time | date:"HH:mm dd/MM/yyyy"}}</div>
       <div class="article-description">{{article.description}}</div>
       <div>
         <button (click)="edit(index)" class="btn btn-warning">Edit</button>

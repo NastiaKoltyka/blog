@@ -12,19 +12,21 @@ input[type="password"].ng-valid,
 input[type="email"].ng-valid {
   outline: 2px solid green;
 }
+
 input[type="text"].ng-invalid.ng-dirty,
 input[type="password"].ng-invalid.ng-dirty,
 input[type="email"].ng-invalid.ng-dirty {
   outline: 2px solid red;
 }
-.radio{
+
+.radio {
   margin: 10px 0px;
   width: 150px;
   display: flex;
   justify-content: space-between;
 }
+
 .invalid-tooltip {
-  top:auto;
+  top: auto;
   display: block;
 }
-

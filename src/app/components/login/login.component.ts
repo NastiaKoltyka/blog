@@ -1,4 +1,4 @@
-import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -11,23 +11,23 @@ import { UsersService } from 'src/app/services/users.service';
 export class LoginComponent implements OnInit {
   @Output() registration = new EventEmitter();
   @Output() blog = new EventEmitter<string>();
-  error:boolean;
+  error: boolean;
   constructor(private userService: UsersService) {
-    this.error=false;
+    this.error = false;
   }
 
   ngOnInit(): void {
   }
   onSubmit(form: NgForm) {
     if (form.valid) {
-      if(this.userService.checkLogin(form.value.login, form.value.password)){        
+      if (this.userService.checkLogin(form.value.login, form.value.password)) {
         this.blog.emit(form.value.login);
-        this.error=false;
+        this.error = false;
       }
-      else if(this.userService.userExist(form.value.login)){
-        this.error=true;
+      else if (this.userService.userExist(form.value.login)) {
+        this.error = true;
       }
-      else{
+      else {
         this.registration.emit();
       }
     }

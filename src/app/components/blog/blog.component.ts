@@ -14,6 +14,7 @@ import { ArticleService } from 'src/app/services/article.service';
 export class BlogComponent implements OnInit {
   @Input() login: string;
   articles: Article[];
+  status:boolean;
   title: string;
   description: string;
   visibleEdit: boolean;
@@ -21,6 +22,7 @@ export class BlogComponent implements OnInit {
   index: number;
   constructor(private articlesService: ArticleService) {
     this.articles = articlesService.articles;
+    this.status=false
     this.title = '';
     this.description = '';
     this.visibleEdit = false;
@@ -33,6 +35,7 @@ export class BlogComponent implements OnInit {
   }
   onSubmit(form: NgForm): void {
     if (form.valid) {
+      this.status=true
       if (!this.visibleEdit) {
         this.articlesService.addArticle(form.value.title, form.value.description);
       }

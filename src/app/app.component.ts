@@ -27,7 +27,7 @@ export class AppComponent {
     this.blog=true;
     this.login=false;
     this.userName=userName;
-    this.name=this.userService.getName(userName)
+    this.name=this.userService.getName(userName);
   }
   showLogin(){
     this.registration=false;

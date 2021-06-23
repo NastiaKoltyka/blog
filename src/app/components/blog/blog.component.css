@@ -37,20 +37,32 @@ h3 {
   min-height: 147px;
   margin-bottom: 20px;
   padding: 20px;
+  overflow: auto;
 }
 
 .article-title {
   font-weight: bold;
 }
-.article-description{
-    margin-bottom: 20px;
+
+.article-description {
+  margin-bottom: 20px;
 }
-.article-time{
-    text-align: right;
+
+.article-time {
+  text-align: right;
 }
-.btn-danger{
-    margin-left: 20px;
+
+.btn-danger {
+  margin-left: 20px;
 }
-.modal{
-    display: block;
+
+.modal {
+  display: block;
+}
+
+.btn-success {
+  height: 39px;
+  width: 100px;
+  margin-top: 32px;
+  margin-left: 10px;
 }
